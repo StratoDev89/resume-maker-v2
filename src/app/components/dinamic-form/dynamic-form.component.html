@@ -1,0 +1,109 @@
+<h1 class="form-header form-title">{{ form.formTitle }}</h1>
+<form
+  #myForm="ngForm"
+  [formGroup]="dynamicFormGroup"
+  class="form-basic"
+  (ngSubmit)="save()"
+>
+  @for (control of form.formControls; track control.name) {
+    <div
+      class="field-form"
+      *ngIf="['text', 'email', 'number'].includes(control.type)"
+    >
+      <label [for]="control.name">{{ control.label }}</label>
+      <input
+        [type]="control.type"
+        [value]="control.value"
+        [formControlName]="control.controlName"
+      />
+      <small
+        class="error-text"
+        *ngIf="
+          (dynamicFormGroup.get(control.name)?.invalid &&
+            dynamicFormGroup.get(control.name)?.touched) ||
+          myForm.submitted
+        "
+        >{{ getValidationErrors(control) }}</small
+      >
+    </div>
+
+    <div class="field-form" *ngIf="['date'].includes(control.type)">
+      <label [for]="control.name"
+        >{{ control.label }}
+        <span style="font-size: 0.7em; font-style: italic; color: gray">
+          {{ control.extraText }}</span
+        >
+      </label>
+      <input
+        [type]="control.type"
+        [value]="control.value"
+        [formControlName]="control.controlName"
+      />
+      <small
+        class="error-text"
+        *ngIf="
+          (dynamicFormGroup.get(control.name)?.invalid &&
+            dynamicFormGroup.get(control.name)?.touched) ||
+          myForm.submitted
+        "
+        >{{ getValidationErrors(control) }}</small
+      >
+    </div>
+
+    <div class="field-form" *ngIf="control.type === 'select'">
+      <label [for]="control.name">{{ control.label }}</label>
+      <select class="field-form" [formControlName]="control.controlName">
+        <option *ngFor="let option of control.options" [value]="option">
+          {{ option }}
+        </option>
+      </select>
+      <small
+        class="error-text"
+        *ngIf="
+          (dynamicFormGroup.get(control.name)?.invalid &&
+            dynamicFormGroup.get(control.name)?.touched) ||
+          myForm.submitted
+        "
+        >{{ getValidationErrors(control) }}</small
+      >
+    </div>
+
+    <div class="field-form" *ngIf="control.type === 'textarea'">
+      <label [for]="control.name">{{ control.label }}</label>
+      <textarea
+        [name]="control.name"
+        cols="30"
+        rows="10"
+        [formControlName]="control.controlName"
+        [class]="control.class"
+      ></textarea>
+      <small
+        class="error-text"
+        *ngIf="
+          (dynamicFormGroup.get(control.name)?.invalid &&
+            dynamicFormGroup.get(control.name)?.touched) ||
+          myForm.submitted
+        "
+        >{{ getValidationErrors(control) }}
+      </small>
+    </div>
+  }
+
+  <div class="btn-container">
+    <ng-container *ngIf="form.saveBtnTitle">
+      <app-btn class="save" type="submit">{{ form.saveBtnTitle }}</app-btn>
+    </ng-container>
+
+    <ng-container *ngIf="form.addBtnTitle">
+      <app-btn class="save" type="button" (onClick)="add()">{{
+        form.addBtnTitle
+      }}</app-btn>
+    </ng-container>
+
+    <ng-container *ngIf="form.deleteBtnTitle">
+      <app-btn class="danger" type="button" (onClick)="remove()">{{
+        form.deleteBtnTitle
+      }}</app-btn>
+    </ng-container>
+  </div>
+</form>

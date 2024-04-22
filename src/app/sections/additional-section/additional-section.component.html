@@ -1,0 +1,11 @@
+<main style="display: flex; flex-direction: column; width: 100%">
+  <app-btn style="text-align: center" (onClick)="toggle()"
+    >add / edit additional information</app-btn
+  >
+
+  @if (showAdditional()) {
+    <app-dynamic-form [form]="additionalConfig" (toggle)="toggle()" />
+  }
+
+  <app-show-single title="additional information" variable="additional" />
+</main>
