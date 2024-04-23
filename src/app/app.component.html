@@ -23,22 +23,10 @@
   <app-awards-section />
 
   <!-- EDUCATION SECTION  -->
-  <app-btn style="text-align: center" (onClick)="toggleEducation()"
-    >add education
-  </app-btn>
-
-  @if (showEducation()) {
-    <app-dynamic-form [form]="educationConfig" (toggle)="toggleEducation()" />
-  }
+  <app-education-section />
 
   <!-- REFERENCES SECTION  -->
-  <app-btn style="text-align: center" (onClick)="toggleReferences()"
-    >add / edit references
-  </app-btn>
-
-  @if (showReferences()) {
-    <app-dynamic-form [form]="referencesConfig" (toggle)="toggleReferences()" />
-  }
+  <app-references-section />
 
   <!-- ADDITIONAL SECTION  -->
   <app-additional-section />

@@ -30,7 +30,8 @@ $shadow:
   text-transform: capitalize;
 
   label,
-  input, select {
+  input,
+  select {
     padding: 0.5rem;
   }
 }
@@ -69,4 +70,19 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .black-border {
   border: 1px solid black;
+}
+
+.custom-table {
+  width: 100%;
+  text-transform: capitalize;
+  text-align: center;
+  font-size: clamp(0.7em, 1vw, 1.6em);
+  border: 1px solid black;
+  border-collapse: collapse;
+
+  td,
+  th {
+    padding: 0.3em;
+    border: 1px solid black;
+  }
 }

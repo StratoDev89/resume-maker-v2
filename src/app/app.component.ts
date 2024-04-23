@@ -6,7 +6,6 @@ import {
   headerFormConfig,
   languagesFormConfig,
   referencesFormConfig,
-  educationFormConfig,
 } from './constants';
 import {
   BtnComponent,
@@ -17,6 +16,8 @@ import {
   AdditionalSectionComponent,
   AwardsSectionComponent,
   CertificationsSectionComponent,
+  EducationSectionComponent,
+  ReferencesSectionComponent,
   SummarySectionComponent,
 } from '@sections/';
 
@@ -32,6 +33,8 @@ import {
     CertificationsSectionComponent,
     AwardsSectionComponent,
     AdditionalSectionComponent,
+    EducationSectionComponent,
+    ReferencesSectionComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -42,13 +45,9 @@ export class AppComponent {
   headerConfig = headerFormConfig;
   experienceConfig = experienceFormConfig;
   languagesConfig = languagesFormConfig;
-  referencesConfig = referencesFormConfig;
-  educationConfig = educationFormConfig;
 
   showExperience = signal(false);
   showLanguages = signal(false);
-  showReferences = signal(false);
-  showEducation = signal(false);
 
   ngOnInit(): void {}
 
@@ -58,13 +57,5 @@ export class AppComponent {
 
   toggleLanguages() {
     this.showLanguages.update((prev) => !prev);
-  }
-
-  toggleReferences() {
-    this.showReferences.update((prev) => !prev);
-  }
-
-  toggleEducation() {
-    this.showEducation.update((prev) => !prev);
   }
 }

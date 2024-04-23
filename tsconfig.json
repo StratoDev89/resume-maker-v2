@@ -3,10 +3,11 @@
   "compileOnSave": false,
   "compilerOptions": {
     "paths": {
-      "@interfaces/*": ["./src/app/interfaces/*"],
+      "@interfaces/*": ["./src/app/interfaces"],
       "@constants/*": ["./src/app/constants"],
       "@components/*": ["./src/app/components"],
-      "@sections/*": ["./src/app/sections"]
+      "@sections/*": ["./src/app/sections"],
+      "@services/*": ["./src/app/services/*"]
     },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
