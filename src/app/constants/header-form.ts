@@ -1,4 +1,5 @@
 import { DynamicForm } from '@interfaces/dynamic-form.interface';
+import { states } from './states';
 
 export const headerFormConfig: DynamicForm = {
   formTitle: 'header',
@@ -64,7 +65,7 @@ export const headerFormConfig: DynamicForm = {
       controlName: 'state',
       label: 'state',
       type: 'select',
-      options: ['1', '2', '3'],
+      options: states,
       validators: [
         {
           validatorName: 'required',

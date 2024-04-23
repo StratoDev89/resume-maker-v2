@@ -1,7 +1,9 @@
-.section-container {
-  text-transform: capitalize;
-}
+
 
 .experience-container {
   padding:1rem ;
+
+  .skills {
+    font-size: clamp(.6em, 1vw, 1.3em);
+  }
 }

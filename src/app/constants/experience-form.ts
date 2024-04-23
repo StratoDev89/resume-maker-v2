@@ -1,4 +1,5 @@
 import { DynamicForm } from '@interfaces/dynamic-form.interface';
+import { states } from './states';
 
 export const experienceFormConfig: DynamicForm = {
   formTitle: 'experience',
@@ -64,7 +65,7 @@ export const experienceFormConfig: DynamicForm = {
       controlName: 'state',
       label: 'State',
       type: 'select',
-      options: ['1', '2'],
+      options: states,
       validators: [
         {
           validatorName: 'required',

@@ -10,16 +10,10 @@ $shadow:
   20px 20px 60px #bebebe,
   -20px -20px 60px #ffffff;
 
-.form-basic {
-  display: flex;
-  flex-wrap: wrap;
-  column-gap: 0.5rem;
-  padding: 1rem;
-  border-radius: 10px;
-  box-shadow: $shadow;
-  width: 80%;
-  font-size: 0.9em;
-  margin: 0 auto;
+@mixin mobile {
+  @media screen and (max-width: 480px) {
+    @content;
+  }
 }
 
 .field-form {
@@ -84,5 +78,40 @@ input[type="number"]::-webkit-inner-spin-button {
   th {
     padding: 0.3em;
     border: 1px solid black;
+  }
+}
+
+.section-container {
+  text-transform: capitalize;
+
+  h2 {
+    color: #1d50a3ea;
+  }
+
+  h2,
+  h3,
+  h4 {
+    font-size: clamp(0.8em, 1.8vw, 2.2em);
+  }
+
+  p {
+    font-size: clamp(0.6em, 1.3vw, 1.8em);
+    text-wrap: pretty;
+  }
+}
+
+.form-basic {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 0.5rem;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: $shadow;
+  width: 80%;
+  font-size: clamp(0.7em, 1.3vw, 1.6em);
+  margin: 0 auto;
+
+  @include mobile {
+    width: 100%;
   }
 }
