@@ -104,7 +104,14 @@ export class DynamicFormComponent {
   }
 
   getSavedVariable() {
-    this.storageVariable = this.storage.getStorage(this.form.formTitle) ?? [];
+    if (
+      ['summary', 'awards', 'certifications', 'additional'].includes(
+        this.form.formTitle,
+      )
+    ) {
+      const { id, value } = this.storage.getStorage(this.form.formTitle);
+      this.dynamicFormGroup.get(this.form.formTitle)?.setValue(value);
+    }
   }
 
   saveSingle() {

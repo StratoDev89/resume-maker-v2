@@ -5,6 +5,7 @@
 
   @if (showEducationForm()) {
     <app-dynamic-form [form]="educationConfig" (toggle)="toggle()" />
+    <app-edition-table storageKey="education" (closeForm)="toggle()"/>
   }
 
   <app-show-table-education />

@@ -1,12 +1,21 @@
 import { Component, signal } from '@angular/core';
-import { BtnComponent, ShowTableEducationComponent } from '@components/';
-import { DynamicFormComponent } from '@components/dinamic-form/dynamic-form.component';
+import {
+  BtnComponent,
+  EditionTableComponent,
+  ShowTableEducationComponent,
+  DynamicFormComponent
+} from '@components/';
 import { educationFormConfig } from '@constants/education-form';
 
 @Component({
   selector: 'app-education-section',
   standalone: true,
-  imports: [ShowTableEducationComponent, DynamicFormComponent, BtnComponent],
+  imports: [
+    ShowTableEducationComponent,
+    DynamicFormComponent,
+    BtnComponent,
+    EditionTableComponent,
+  ],
   templateUrl: './education-section.component.html',
   styleUrl: './education-section.component.scss',
 })

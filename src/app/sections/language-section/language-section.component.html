@@ -5,6 +5,7 @@
 
   @if (showLanguagesForm()) {
     <app-dynamic-form [form]="languageConfig" (toggle)="toggle()" />
+    <app-edition-table storageKey="languages" (closeForm)="toggle()" />
   }
 
   <app-show-table-languages />

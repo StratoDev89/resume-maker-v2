@@ -7,5 +7,7 @@ export * from './show-table-languages/show-table-languages.component'
 export * from './show-experiences/show-experiences.component'
 export * from './show-header/show-header.component'
 export * from './spacer/spacer.component'
+export * from './edition-table/edition-table.component'
+
 
 

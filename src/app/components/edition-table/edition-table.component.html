@@ -1,0 +1,61 @@
+<main>
+  <div style="padding: 1rem">
+    @if (dataLanguages) {
+      <div class="grid-container">
+        @for (item of dataLanguages; track item.id) {
+          <div class="edition-container">
+            <div class="grid">
+              <div class="grid-content">{{ item.language }}</div>
+              <div class="grid-content">{{ item.read }}</div>
+              <div class="grid-content">{{ item.spoken }}</div>
+              <div class="grid-content">{{ item.written }}</div>
+            </div>
+            <div class="edition-btn-container">
+              <app-btn type="button" class="danger" (onClick)="onDelete(item.id)">delete</app-btn>
+              <app-btn type="button" class="save">update</app-btn>
+            </div>
+          </div>
+        }
+      </div>
+    }
+
+    @if (dataEducation) {
+      <div class="grid-container">
+        @for (item of dataEducation; track item.id) {
+          <div class="edition-container">
+            <div class="grid">
+              <div class="grid-content">{{ item.degree }}</div>
+              <div class="grid-content">{{ item.acronym }}</div>
+              <div class="grid-content">{{ item.year }}</div>
+              <div class="grid-content">{{ item.level }}</div>
+            </div>
+            <div class="edition-btn-container">
+              <app-btn type="button" class="danger" (onClick)="onDelete(item.id)">delete</app-btn>
+              <app-btn type="button" class="save">update</app-btn>
+            </div>
+          </div>
+        }
+      </div>
+    }
+
+    @if (dataReferences) {
+      <div class="grid-container">
+        @for (item of dataReferences; track item.id) {
+          <div class="edition-container">
+            <div class="grid">
+              <div class="grid-content">{{ item.name }}</div>
+              <div class="grid-content">{{ item.employer }}</div>
+              <div class="grid-content">{{ item.title }}</div>
+              <div class="grid-content">{{ item.phone }}</div>
+              <div class="grid-content">{{ item.email }}</div>
+            </div>
+            <div class="edition-btn-container">
+              <app-btn type="button" class="danger" (onClick)="onDelete(item.id)">delete</app-btn>
+              <app-btn type="button" class="save">update</app-btn>
+            </div>
+          </div>
+        }
+      </div>
+    }
+  </div>
+</main>

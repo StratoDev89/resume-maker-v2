@@ -5,7 +5,8 @@
 
   @if (showReferences()) {
     <app-dynamic-form [form]="referencesConfig" (toggle)="toggle()" />
+    <app-edition-table storageKey="references" (closeForm)="toggle()" />
   }
 
-  <app-show-references-table/>
+  <app-show-references-table />
 </main>
