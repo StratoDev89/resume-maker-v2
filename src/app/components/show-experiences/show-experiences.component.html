@@ -1,0 +1,22 @@
+@if (content()) {
+  <section class="section-container">
+    <h2>{{ title }}</h2>
+
+    @for (data of content(); track data.id) {
+      <div class="experience-container">
+        <h3>{{ data.position }}</h3>
+        <h4>{{ data.organization }}</h4>
+        <p>
+          {{ data.address }}, {{ data.city }}, {{ data.state }}
+          {{ data.zipCode }}
+        </p>
+        <p>
+          <strong>Dates:</strong> {{ data.startDate }} - {{ data.endDate }} |
+          <strong>Salary:</strong> {{ data.salary }} -
+          <strong>Works Per Week: </strong> {{ data.hours }}
+        </p>
+        <p>{{data.skills}}</p>
+      </div>
+    }
+  </section>
+}

@@ -1,4 +1,4 @@
-import { Component, Input, inject, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { fromEvent } from 'rxjs';
 import { StorageService } from '@services/storage.service';
 import { EducationFields, Title } from '@interfaces/';
@@ -11,8 +11,8 @@ import { EducationFields, Title } from '@interfaces/';
   styleUrl: './show-table-education.component.scss',
 })
 export class ShowTableEducationComponent {
-  @Input('title') title = 'education';
-  @Input('variable') variable: Title | '' = 'education';
+  title = 'education';
+  variable: Title = 'education';
   showEducations = signal(false);
   storage = inject(StorageService);
   content = signal<EducationFields[] | null>(null);

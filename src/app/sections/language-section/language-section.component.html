@@ -1,0 +1,11 @@
+<main style="display: flex; flex-direction: column; width: 100%">
+  <app-btn style="text-align: center" (onClick)="toggle()"
+    >add language</app-btn
+  >
+
+  @if (showLanguagesForm()) {
+    <app-dynamic-form [form]="languageConfig" (toggle)="toggle()" />
+  }
+
+  <app-show-table-languages />
+</main>

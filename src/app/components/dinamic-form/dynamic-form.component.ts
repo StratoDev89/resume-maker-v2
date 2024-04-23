@@ -74,7 +74,6 @@ export class DynamicFormComponent {
         case 'summary':
         case 'certifications':
         case 'awards':
-        case 'header':
         case 'additional':
           this.saveSingle();
           break;
@@ -87,6 +86,7 @@ export class DynamicFormComponent {
           break;
 
         default:
+          this.saveHeader();
           break;
       }
 
@@ -108,8 +108,8 @@ export class DynamicFormComponent {
   }
 
   saveSingle() {
-    const value = this.dynamicFormGroup.get(this.form.formTitle)?.value!
-    const data = { id: uuidv4(), value};
+    const value = this.dynamicFormGroup.get(this.form.formTitle)?.value!;
+    const data = { id: uuidv4(), value };
     this.storage.setStorage(this.form.formTitle, data);
   }
 
@@ -119,5 +119,10 @@ export class DynamicFormComponent {
       ...this.dynamicFormGroup.getRawValue(),
     });
     this.storage.setStorage(this.form.formTitle, this.storageVariable);
+  }
+
+  saveHeader() {
+    const data = { id: uuidv4(), ...this.dynamicFormGroup.getRawValue() };
+    this.storage.setStorage(this.form.formTitle, data);
   }
 }

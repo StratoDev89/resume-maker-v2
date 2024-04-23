@@ -1,20 +1,20 @@
 import { Component, inject, signal } from '@angular/core';
-import { ReferenceFields, Title } from '@interfaces/*';
+import { HeaderFields, Title } from '@interfaces/*';
 import { StorageService } from '@services/storage.service';
-import { fromEvent } from 'rxjs';
+import { fromEvent } from 'rxjs/internal/observable/fromEvent';
 
 @Component({
-  selector: 'app-show-references-table',
+  selector: 'app-show-header',
   standalone: true,
   imports: [],
-  templateUrl: './show-references-table.component.html',
-  styleUrl: './show-references-table.component.scss',
+  templateUrl: './show-header.component.html',
+  styleUrl: './show-header.component.scss',
 })
-export class ShowReferencesTableComponent {
-  title = 'references';
-  variable: Title | '' = 'references';
+export class ShowHeaderComponent {
+  title = 'header';
+  variable: Title = 'header';
   storage = inject(StorageService);
-  content = signal<ReferenceFields[] | null>(null);
+  content = signal<HeaderFields | null>(null);
 
   ngOnInit(): void {
     this.setContent();
@@ -27,6 +27,7 @@ export class ShowReferencesTableComponent {
 
   setContent() {
     const storedData = this.storage.getStorage(this.variable);
+
     if (storedData) this.content.set(storedData);
   }
 }

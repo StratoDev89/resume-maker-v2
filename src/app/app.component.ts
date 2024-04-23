@@ -1,12 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
-import {
-  experienceFormConfig,
-  headerFormConfig,
-  languagesFormConfig,
-  referencesFormConfig,
-} from './constants';
+import { experienceFormConfig, headerFormConfig } from './constants';
 import {
   BtnComponent,
   DynamicFormComponent,
@@ -17,6 +12,9 @@ import {
   AwardsSectionComponent,
   CertificationsSectionComponent,
   EducationSectionComponent,
+  ExperienceSectionComponent,
+  HeaderSectionComponent,
+  LanguageSectionComponent,
   ReferencesSectionComponent,
   SummarySectionComponent,
 } from '@sections/';
@@ -35,6 +33,9 @@ import {
     AdditionalSectionComponent,
     EducationSectionComponent,
     ReferencesSectionComponent,
+    LanguageSectionComponent,
+    ExperienceSectionComponent,
+    HeaderSectionComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -42,20 +43,6 @@ import {
 export class AppComponent {
   title = 'resumeMaker';
 
-  headerConfig = headerFormConfig;
-  experienceConfig = experienceFormConfig;
-  languagesConfig = languagesFormConfig;
-
-  showExperience = signal(false);
-  showLanguages = signal(false);
 
   ngOnInit(): void {}
-
-  toggleExp() {
-    this.showExperience.update((prev) => !prev);
-  }
-
-  toggleLanguages() {
-    this.showLanguages.update((prev) => !prev);
-  }
 }

@@ -1,20 +1,20 @@
 import { Component, inject, signal } from '@angular/core';
-import { ReferenceFields, Title } from '@interfaces/*';
+import { Title, ExperienceFields } from '@interfaces/*';
 import { StorageService } from '@services/storage.service';
-import { fromEvent } from 'rxjs';
+import { fromEvent } from 'rxjs/internal/observable/fromEvent';
 
 @Component({
-  selector: 'app-show-references-table',
+  selector: 'app-show-experiences',
   standalone: true,
   imports: [],
-  templateUrl: './show-references-table.component.html',
-  styleUrl: './show-references-table.component.scss',
+  templateUrl: './show-experiences.component.html',
+  styleUrl: './show-experiences.component.scss'
 })
-export class ShowReferencesTableComponent {
-  title = 'references';
-  variable: Title | '' = 'references';
+export class ShowExperiencesComponent {
+  title = 'experience';
+  variable: Title = 'experience';
   storage = inject(StorageService);
-  content = signal<ReferenceFields[] | null>(null);
+  content = signal<ExperienceFields[] | null>(null)
 
   ngOnInit(): void {
     this.setContent();

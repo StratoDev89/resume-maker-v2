@@ -1,24 +1,18 @@
 <main>
   <!-- HEADER  -->
-  <app-dynamic-form [form]="headerConfig" />
+  <app-header-section />
 
   <!-- SUMMARY  -->
   <app-summary-section />
 
   <!-- EXPERIENCES  -->
-  <app-btn style="text-align: center" (onClick)="toggleExp()"
-    >add work experience</app-btn
-  >
-
-  @if (showExperience()) {
-    <app-dynamic-form [form]="experienceConfig" (toggle)="toggleExp()" />
-  }
+  <app-experience-section />
 
   <!-- CERTIFICATIONS SECTION -->
   <app-certifications-section />
 
   <!-- LANGUAGES SECTION -->
-
+  <app-language-section />
   <!-- AWARDS SECTION  -->
   <app-awards-section />
 

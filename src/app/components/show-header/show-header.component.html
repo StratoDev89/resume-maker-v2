@@ -1,0 +1,15 @@
+@if (content()) {
+  <section class="header-container">
+    <h1>{{ content()?.firstName }} {{ content()?.lastName }}</h1>
+    <hr />
+    <p>
+      {{ content()?.street }}
+      {{ content()?.city }},
+      {{ content()?.state }}
+      {{ content()?.zipCode }} | {{ content()?.phone }} |
+      <span style="text-transform: lowercase">
+        {{ content()?.email }}
+      </span>
+    </p>
+  </section>
+}

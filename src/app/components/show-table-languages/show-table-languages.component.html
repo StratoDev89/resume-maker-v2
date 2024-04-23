@@ -5,22 +5,21 @@
     <div style="padding: 1rem;">
       <table class="custom-table">
         <tr style="background-color: rgb(192, 188, 188)">
-          <th>degree</th>
-          <th>acronym</th>
-          <th>year</th>
-          <th>level</th>
+          <th>language</th>
+          <th>read</th>
+          <th>spoken</th>
+          <th>written</th>
         </tr>
 
         @for (data of content(); track data.id) {
           <tr>
-            <td>{{ data.degree }}</td>
-            <td>{{ data.acronym }}</td>
-            <td>{{ data.year }}</td>
-            <td>{{ data.level }}</td>
+            <td>{{ data.language }}</td>
+            <td>{{ data.read }}</td>
+            <td>{{ data.spoken }}</td>
+            <td>{{ data.written }}</td>
           </tr>
         }
       </table>
-
     </div>
   </section>
 }
