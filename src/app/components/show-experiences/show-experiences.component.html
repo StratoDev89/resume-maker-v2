@@ -2,7 +2,7 @@
   <section class="section-container">
     <h2>{{ title }}</h2>
 
-    @for (data of content(); track data.id) {
+    @for (data of content(); track data.organization) {
       <div class="experience-container">
         <h3>{{ data.position }}</h3>
         <h4>{{ data.organization }}</h4>
@@ -15,8 +15,27 @@
           <strong>Salary:</strong> ${{ data.salary }} -
           <strong>Works Per Week: </strong> {{ data.hours }}
         </p>
-        <p class="skills">{{data.skills}}</p>
+        <p class="skills">{{ data.skills }}</p>
+      </div>
+
+      <div class="btn-container">
+        <app-btn type="button" class="danger" (onClick)="remove(data.id)"
+          >delete</app-btn
+        >
+        <app-btn type="button" class="save" (onClick)="update(data.id)"
+          >update</app-btn
+        >
       </div>
     }
   </section>
+}
+
+@if (showUpdateForm()) {
+  <app-update-form
+    [item]="itemToUpdate()"
+    [formConfig]="formConfig"
+    [toUpdate]="'experience'"
+    (closeForm)="onClose()"
+    (saveForm)="onClose()"
+  />
 }

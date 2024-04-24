@@ -5,8 +5,6 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './spacer.component.html',
-  styleUrl: './spacer.component.scss'
+  styleUrl: './spacer.component.scss',
 })
-export class SpacerComponent {
-
-}
+export class SpacerComponent {}

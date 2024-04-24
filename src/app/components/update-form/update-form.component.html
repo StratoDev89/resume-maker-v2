@@ -1,1 +1,57 @@
-<p>update-form works!</p>
+<div class="modal">
+  <form [formGroup]="dynamicFormGroup" class="float form-basic" (ngSubmit)="onSave()">
+    @for (control of formConfig.formControls; track control.name) {
+      <div
+        class="field-form"
+        *ngIf="['text', 'email', 'number'].includes(control.type)"
+      >
+        <label [for]="control.name">{{ control.label }}</label>
+        <input
+          [type]="control.type"
+          [value]="control.value"
+          [formControlName]="control.controlName"
+        />
+      </div>
+
+      <div class="field-form" *ngIf="['date'].includes(control.type)">
+        <label [for]="control.name"
+          >{{ control.label }}
+          <span style="font-size: 0.7em; font-style: italic; color: gray">
+            {{ control.extraText }}</span
+          >
+        </label>
+        <input
+          [type]="control.type"
+          [value]="control.value"
+          [formControlName]="control.controlName"
+        />
+      </div>
+
+      <div class="field-form" *ngIf="control.type === 'select'">
+        <label [for]="control.name">{{ control.label }}</label>
+        <select class="field-form" [formControlName]="control.controlName">
+          <option *ngFor="let option of control.options" [value]="option">
+            {{ option }}
+          </option>
+        </select>
+      </div>
+
+      <div class="field-form" *ngIf="control.type === 'textarea'">
+        <label [for]="control.name">{{ control.label }}</label>
+        <textarea
+          [name]="control.name"
+          cols="30"
+          rows="10"
+          [formControlName]="control.controlName"
+          [class]="control.class"
+        ></textarea>
+      </div>
+
+    }
+    <div class="edition-btn-container">
+      <app-btn type="button" class="basic" (onClick)="onClose()">close</app-btn>
+      <app-btn type="submit" class="save" >save</app-btn>
+
+    </div>
+  </form>
+</div>

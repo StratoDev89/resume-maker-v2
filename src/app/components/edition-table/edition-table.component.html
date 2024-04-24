@@ -11,10 +11,30 @@
               <div class="grid-content">{{ item.written }}</div>
             </div>
             <div class="edition-btn-container">
-              <app-btn type="button" class="danger" (onClick)="onDelete(item.id)">delete</app-btn>
-              <app-btn type="button" class="save">update</app-btn>
+              <app-btn
+                type="button"
+                class="danger"
+                (onClick)="onDelete(item.id)"
+                >delete</app-btn
+              >
+              <app-btn
+                type="button"
+                class="save"
+                (onClick)="onUpdate(item, 'languages')"
+                >update</app-btn
+              >
             </div>
           </div>
+
+          @if (showUpdateForm() && toUpdate() === "languages") {
+            <app-update-form
+              [formConfig]="languageConfig"
+              [item]="item"
+              toUpdate="languages"
+              (closeForm)="onClose()"
+              (saveForm)="onSave()"
+            />
+          }
         }
       </div>
     }
@@ -30,10 +50,30 @@
               <div class="grid-content">{{ item.level }}</div>
             </div>
             <div class="edition-btn-container">
-              <app-btn type="button" class="danger" (onClick)="onDelete(item.id)">delete</app-btn>
-              <app-btn type="button" class="save">update</app-btn>
+              <app-btn
+                type="button"
+                class="danger"
+                (onClick)="onDelete(item.id)"
+                >delete</app-btn
+              >
+              <app-btn
+                type="button"
+                class="save"
+                (onClick)="onUpdate(item, 'education')"
+                >update</app-btn
+              >
             </div>
           </div>
+
+          @if (showUpdateForm() && toUpdate() === "education") {
+            <app-update-form
+              [formConfig]="educationConfig"
+              [item]="item"
+              toUpdate="education"
+              (closeForm)="onClose()"
+              (saveForm)="onSave()"
+            />
+          }
         }
       </div>
     }
@@ -50,10 +90,30 @@
               <div class="grid-content">{{ item.email }}</div>
             </div>
             <div class="edition-btn-container">
-              <app-btn type="button" class="danger" (onClick)="onDelete(item.id)">delete</app-btn>
-              <app-btn type="button" class="save">update</app-btn>
+              <app-btn
+                type="button"
+                class="danger"
+                (onClick)="onDelete(item.id)"
+                >delete</app-btn
+              >
+              <app-btn
+                type="button"
+                class="save"
+                (onClick)="onUpdate(item, 'references')"
+                >update</app-btn
+              >
             </div>
           </div>
+
+          @if (showUpdateForm() && toUpdate() === "references") {
+            <app-update-form
+              [formConfig]="referenceConfig"
+              [item]="item"
+              toUpdate="references"
+              (closeForm)="onClose()"
+              (saveForm)="onSave()"
+            />
+          }
         }
       </div>
     }

@@ -1,9 +1,14 @@
-
-
 .experience-container {
-  padding:1rem ;
+  padding: 1rem;
 
   .skills {
-    font-size: clamp(.6em, 1vw, 1.3em);
+    font-size: clamp(0.6em, 1vw, 1.3em);
   }
+
+}
+
+.btn-container {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
 }

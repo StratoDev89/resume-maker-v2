@@ -27,7 +27,7 @@ export class DynamicFormComponent {
   @Input() form!: DynamicForm;
   @Output() toggle = new EventEmitter();
   dynamicFormGroup: FormGroup = new FormGroup({});
-  storageVariable!: string[];
+  currentStorage: string[] = [];
 
   ngOnInit(): void {
     this.setDynamicForm();
@@ -121,11 +121,15 @@ export class DynamicFormComponent {
   }
 
   saveArray() {
-    this.storageVariable.push({
+    const currentData = this.storage.getStorage(this.form.formTitle);
+
+    if (currentData) this.currentStorage = currentData;
+
+    this.currentStorage.push({
       id: uuidv4(),
       ...this.dynamicFormGroup.getRawValue(),
     });
-    this.storage.setStorage(this.form.formTitle, this.storageVariable);
+    this.storage.setStorage(this.form.formTitle, this.currentStorage);
   }
 
   saveHeader() {
