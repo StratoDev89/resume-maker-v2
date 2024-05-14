@@ -1,0 +1,25 @@
+<div data-html2canvas-ignore>
+  <app-btn (onClick)="setTemplate('one')" [class]="selectedOne()"
+    >template 1</app-btn
+  >
+  <app-btn (onClick)="setTemplate('two')" [class]="selectedTwo()"
+    >template 2</app-btn
+  >
+  <app-btn (onClick)="setTemplate('three')" [class]="selectedThree()"
+    >template 3</app-btn
+  >
+</div>
+
+<div id="template">
+  @if (template() === "one") {
+    <app-template-one />
+  }
+
+  @if (template() === "two") {
+    <app-template-two />
+  }
+
+  @if (template() === "three") {
+    <app-template-three />
+  }
+</div>

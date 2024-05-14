@@ -1,0 +1,26 @@
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  div {
+    h1 {
+      text-transform: capitalize;
+      font-size: clamp(1.5em, 4.5vw, 6em);
+      letter-spacing: 0.02em;
+    }
+
+    h2 {
+      text-transform: capitalize;
+      font-size: clamp(1.3em, 4vw, 5em);
+      letter-spacing: 0.04em;
+      font-weight: 500;
+    }
+
+    div {
+      margin-top: 1rem;
+      text-align: center;
+    }
+  }
+}

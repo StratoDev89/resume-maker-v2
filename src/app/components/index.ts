@@ -8,4 +8,15 @@ export * from './show-experiences/show-experiences.component';
 export * from './show-header/show-header.component';
 export * from './spacer/spacer.component';
 export * from './edition-table/edition-table.component';
+export * from './template-one/template-one.component';
+export * from './template-two/template-two.component';
+export * from './template-three/template-three.component';
+export * from './templates-section/templates-section.component';
+export * from './form/form.component';
+export * from './action-buttons/action-buttons.component';
+
+
+
+
+
 

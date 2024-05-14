@@ -7,18 +7,18 @@ export class StorageService {
   private storageVariables = [
     'header',
     'summary',
-    'workExperience',
+    'experience',
     'education',
     'certifications',
     'awards',
     'languages',
     'references',
-    'additionalInformation',
+    'additional',
   ];
 
   setStorage(storageVariable: string, payload: any) {
     localStorage.setItem(storageVariable, JSON.stringify(payload));
-    window.dispatchEvent( new Event('storage') )
+    window.dispatchEvent(new Event('storage'));
   }
 
   getStorage(storageVariable: string) {
@@ -26,7 +26,7 @@ export class StorageService {
     if (storage) {
       return JSON.parse(storage);
     }
-    return null;
+    return '';
   }
 
   remove(storageVariable: string) {
@@ -38,5 +38,17 @@ export class StorageService {
       this.remove(item);
       location.reload();
     });
+  }
+
+  getAllStorage() {
+    const allStorage: { [key: string]: any } = {};
+
+    this.storageVariables.forEach((key) => {
+      const item = localStorage.getItem(key);
+      if (item) {
+        allStorage[key] = JSON.parse(item);
+      }
+    });
+    return allStorage;
   }
 }
