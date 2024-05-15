@@ -112,6 +112,12 @@ export class DynamicFormComponent {
       const { id, value } = this.storage.getStorage(this.form.formTitle);
       this.dynamicFormGroup.get(this.form.formTitle)?.setValue(value);
     }
+
+    if (this.form.formTitle === 'header') {
+      const { id, ...data } = this.storage.getStorage(this.form.formTitle);
+
+      this.dynamicFormGroup.patchValue(data);
+    }
   }
 
   saveSingle() {

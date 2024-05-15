@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
   font-style: normal;
 }
 
@@ -30,6 +29,7 @@ $blue: #1d50a3ea;
   flex-direction: column;
   flex-grow: 1;
   text-transform: capitalize;
+  font-family: "Roboto", sans-serif;
 
   label,
   input,
@@ -93,6 +93,7 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .section-container {
   text-transform: capitalize;
+  font-family: "Roboto", sans-serif;
 
   h2 {
     color: #1d50a3ea;
@@ -105,7 +106,7 @@ input[type="number"]::-webkit-inner-spin-button {
   }
 
   p {
-    font-size: clamp(0.6em, 1.3vw, 1.5em);
+    font-size: clamp(0.6em, 1vw, 1.3em);
     text-wrap: pretty;
   }
 }

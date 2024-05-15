@@ -1,15 +1,17 @@
 main {
   margin-top: 2rem;
-  padding: 1rem;
+  padding: 3rem 1.5rem;
+  font-family: "Nunito Sans", sans-serif;
 
   hr {
     margin-bottom: 2rem;
     background-color: green;
-    height: 2px;
+    height: 1px;
+    border: none;
   }
 
   #title {
-    font-size: 4vw;
+    font-size: 3vw;
     font-weight: bolder;
     text-align: center;
   }

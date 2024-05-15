@@ -1,26 +1,28 @@
+@if (data()) {
+}
 <main id="template-one">
   <p id="title">Professional Resume</p>
   <hr />
   <h1>
-    {{ data().header.firstName }}
-    {{ data().header.lastName }}
+    {{ data()?.header?.firstName }}
+    {{ data()?.header?.lastName }}
   </h1>
   <h2>
-    {{ data().header.street }}
-    {{ data().header.city }}
-    {{ data().header.state }}
-    {{ data().header.zipCode }}
+    {{ data()?.header?.street }}
+    {{ data()?.header?.city }}
+    {{ data()?.header?.state }}
+    {{ data()?.header?.zipCode }}
   </h2>
   <h3>
-    {{ data().header.phone }} -
-    {{ data().header.email }}
+    {{ data()?.header?.phone }} -
+    {{ data()?.header?.email }}
   </h3>
 
-  @if (data().experience) {
+  @if (data()?.experience) {
     <div class="template-section-experience">
       <h3>professional experience</h3>
 
-      @for (data of data().experience; track data.id) {
+      @for (data of data()?.experience; track data.id) {
         <div style="padding: 0.5rem">
           <p>
             <strong>{{ data.position }}</strong>
@@ -46,25 +48,25 @@
     </div>
   }
 
-  @if (data().summary) {
+  @if (data()?.summary) {
     <div class="template-section">
       <h3>professional summary</h3>
-      <p>{{ data().summary.value }}</p>
+      <p>{{ data()?.summary.value }}</p>
     </div>
   }
 
-  @if (data().certifications) {
+  @if (data()?.certifications) {
     <div class="template-section">
       <h3>certifications</h3>
-      <p>{{ data().certifications.value }}</p>
+      <p>{{ data()?.certifications.value }}</p>
     </div>
   }
 
-  @if (data().languages) {
+  @if (data()?.languages) {
     <div class="template-section-table">
       <h3>languages</h3>
 
-      @for (data of data().languages; track data.id) {
+      @for (data of data()?.languages; track data.id) {
         <div>
           <p>
             <strong>
@@ -79,18 +81,18 @@
     </div>
   }
 
-  @if (data().awards) {
+  @if (data()?.awards) {
     <div class="template-section">
       <h3>awards</h3>
-      <p>{{ data().awards.value }}</p>
+      <p>{{ data()?.awards.value }}</p>
     </div>
   }
 
-  @if (data().education) {
+  @if (data()?.education) {
     <div class="template-section-table">
       <h3>education</h3>
 
-      @for (data of data().education; track data.id) {
+      @for (data of data()?.education; track data.id) {
         <div>
           <p><strong>degree</strong>: {{ data.degree }}</p>
           <p><strong>acronym</strong>: {{ data.acronym }}</p>
@@ -101,11 +103,11 @@
     </div>
   }
 
-  @if (data().references) {
+  @if (data()?.references) {
     <div class="template-section-table">
       <h3>references</h3>
 
-      @for (data of data().references; track data.id) {
+      @for (data of data()?.references; track data.id) {
         <div>
           <p><strong>name</strong>: {{ data.name }}</p>
           <p><strong>employer</strong>: {{ data.employer }}</p>
@@ -117,10 +119,10 @@
     </div>
   }
 
-  @if (data().additional) {
+  @if (data()?.additional) {
     <div class="template-section">
       <h3>additional information</h3>
-      <p>{{ data().additional.value }}</p>
+      <p>{{ data()?.additional.value }}</p>
     </div>
   }
 </main>

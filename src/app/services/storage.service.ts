@@ -41,7 +41,7 @@ export class StorageService {
   }
 
   getAllStorage() {
-    const allStorage: { [key: string]: any } = {};
+    let allStorage: { [key: string]: any } = {};
 
     this.storageVariables.forEach((key) => {
       const item = localStorage.getItem(key);

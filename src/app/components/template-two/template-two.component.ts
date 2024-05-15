@@ -8,20 +8,23 @@ import { fromEvent } from 'rxjs';
   standalone: true,
   imports: [],
   templateUrl: './template-two.component.html',
-  styleUrl: './template-two.component.scss'
+  styleUrl: './template-two.component.scss',
 })
 export class TemplateTwoComponent {
   private storage = inject(StorageService);
 
-  data = signal<{ [key in Title]?: any }>({});
+  data = signal<{ [key in Title]?: any } | null>(null);
 
   ngOnInit(): void {
     const data = this.storage.getAllStorage();
-    this.data.set(data);
+    if (Object.keys(data).length > 0) {
+      this.data.set(data);
+    }
 
     fromEvent(window, 'storage').subscribe((event: any) => {
       const data = this.storage.getAllStorage();
-      this.data.set(data);
+      if (data) this.data.set(data);
+
     });
   }
 }
