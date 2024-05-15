@@ -16,7 +16,7 @@ export class TemplateOneComponent {
   data = signal<{ [key in Title]?: any } | null>(null);
 
   ngOnInit(): void {
-    const data: object = this.storage.getAllStorage();
+    const data = this.storage.getAllStorage();
     if (Object.keys(data).length > 0) {
       this.data.set(data);
     }
